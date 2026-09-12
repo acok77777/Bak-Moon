@@ -2,6 +2,7 @@
 <html lang="ko">
 
 <head>
+
 <meta charset="UTF-8">
 
 <meta name="viewport"
@@ -11,27 +12,44 @@
 
 <title>박문지부 영무궁화 연찬회</title>
 
-<!-- 모바일/카카오톡 공유 미리보기 -->
-<meta property="og:title" content="🌷 박문지부 영무궁화 연찬회 🌷">
-<meta property="og:description" content="🌸 (신인간혁명 9권) 🌸">
-<meta property="og:image" content="https://acok77777.github.io/Bak-Moon/%EB%B0%95%EB%AC%B8%20%EC%82%AC%EC%A7%84/%EC%8A%AC%EB%9D%BC%EC%9D%B4%EB%93%9C1.PNG">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://acok77777.github.io/Bak-Moon/">
+
+<!-- 공유 미리보기 -->
+
+<meta property="og:title"
+      content="🌷 박문지부 영무궁화 연찬회 🌷">
+
+<meta property="og:description"
+      content="🌸 (신인간혁명 9권) 🌸">
+
+<meta property="og:image"
+      content="https://acok77777.github.io/Bak-Moon/%EB%B0%95%EB%AC%B8%20%EC%82%AC%EC%A7%84/%EC%8A%AC%EB%9D%BC%EC%9D%B4%EB%93%9C1.PNG">
+
+<meta property="og:type"
+      content="website">
+
+<meta property="og:url"
+      content="https://acok77777.github.io/Bak-Moon/">
+
+
 
 <link rel="manifest" href="manifest.json">
 
+
 <style>
 
-/* =========================
+/* ========================================
    전체
-========================= */
+======================================== */
 
 * {
   box-sizing: border-box;
 }
 
+
 body {
+
   margin: 0;
+
   min-height: 100vh;
 
   font-family:
@@ -48,54 +66,76 @@ body {
     );
 
   color: #625a65;
+
 }
 
 
-/* =========================
-   전체 폭
-========================= */
+
+/* ========================================
+   전체 영역
+======================================== */
 
 .wrap {
+
   width: 100%;
+
   max-width: 920px;
 
   margin: 0 auto;
 
-  padding: 14px 12px 30px;
+  padding:
+    14px
+    12px
+    30px;
+
 }
 
 
-/* =========================
+
+/* ========================================
    제목
-========================= */
+======================================== */
 
 h1 {
+
   text-align: center;
 
   color: #765f79;
 
-  font-size: clamp(25px, 7vw, 40px);
+  font-size:
+    clamp(
+      25px,
+      7vw,
+      40px
+    );
 
-  margin: 8px 0 18px;
+  margin:
+    8px
+    0
+    18px;
 
   letter-spacing: -1.5px;
 
   line-height: 1.25;
+
 }
 
 
-/* 제목 첫째 줄 */
+/* 첫째 줄 */
 
 .main-title {
+
   display: block;
 
   white-space: nowrap;
+
 }
 
 
-/* 제목 둘째 줄 */
+/* 둘째 줄 */
 
 .sub-title {
+
   display: block;
 
   margin-top: 7px;
@@ -105,32 +145,52 @@ h1 {
   font-weight: 600;
 
   letter-spacing: -0.5px;
+
 }
 
 
-/* =========================
+
+/* ========================================
    카드
-========================= */
+======================================== */
 
 .card {
-  background: rgba(255,255,255,0.93);
 
-  border: 1px solid #eadfea;
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.93
+    );
+
+  border:
+    1px solid
+    #eadfea;
 
   border-radius: 22px;
 
   padding: 12px;
 
   box-shadow:
-    0 8px 24px rgba(100,80,110,0.09);
+    0 8px 24px
+    rgba(
+      100,
+      80,
+      110,
+      0.09
+    );
+
 }
 
 
-/* =========================
+
+/* ========================================
    첫 화면 사진
-========================= */
+======================================== */
 
 .main {
+
   display: block;
 
   width: 100%;
@@ -142,19 +202,27 @@ h1 {
   border-radius: 15px;
 
   background: #faf8fb;
+
 }
 
 
-/* =========================
+
+/* ========================================
    클릭 버튼
-========================= */
+======================================== */
 
 .click {
+
   display: inline-block;
 
-  margin: 16px auto 3px;
+  margin:
+    16px
+    auto
+    3px;
 
-  padding: 14px 38px;
+  padding:
+    14px
+    38px;
 
   border-radius: 999px;
 
@@ -169,94 +237,127 @@ h1 {
   cursor: pointer;
 
   box-shadow:
-    0 5px 14px rgba(120,90,120,0.10);
+    0 5px 14px
+    rgba(
+      120,
+      90,
+      120,
+      0.10
+    );
+
 }
 
 
-/* =========================
-   9명 메뉴
-========================= */
+
+/* ========================================
+   디저트 9개
+======================================== */
 
 .grid {
+
   display: grid;
 
   grid-template-columns:
     repeat(3, 1fr);
 
   gap: 10px;
+
 }
 
 
-/* 각각의 버튼 */
-
 .person {
+
   background:
     linear-gradient(
       #ffffff,
       #fff8fc
     );
 
-  border: 1px solid #eadfea;
+  border:
+    1px solid
+    #eadfea;
 
   border-radius: 18px;
 
-  padding: 15px 4px 13px;
+  padding:
+    15px
+    4px
+    13px;
 
   text-align: center;
 
   cursor: pointer;
 
   box-shadow:
-    0 4px 12px rgba(100,80,110,0.06);
+    0 4px 12px
+    rgba(
+      100,
+      80,
+      110,
+      0.06
+    );
 
   -webkit-tap-highlight-color:
     transparent;
+
 }
 
-
-/* 눌렀을 때 */
 
 .person:active {
-  transform: scale(0.97);
+
+  transform:
+    scale(0.97);
+
 }
+
 
 
 /* 디저트 이모티콘 */
 
 .dessert {
+
   font-size: 46px;
 
   line-height: 1.1;
+
 }
+
 
 
 /* 번호 */
 
 .num {
+
   font-weight: 800;
 
   font-size: 16px;
 
   margin-top: 7px;
+
 }
+
 
 
 /* 이름 */
 
 .name {
+
   font-size: 14px;
 
   color: #aaa1ab;
 
   margin-top: 4px;
+
 }
 
 
-/* =========================
+
+/* ========================================
    사진 보기
-========================= */
+======================================== */
 
 .viewer-title {
+
   text-align: center;
 
   font-size: 19px;
@@ -265,13 +366,16 @@ h1 {
 
   color: #765f79;
 
-  margin: 2px 0 10px;
+  margin:
+    2px
+    0
+    10px;
+
 }
 
 
-/* 사진 영역 */
-
 .slidebox {
+
   height: 68vh;
 
   min-height: 400px;
@@ -287,12 +391,12 @@ h1 {
   border-radius: 15px;
 
   padding: 5px;
+
 }
 
 
-/* 사진 */
-
 .slide {
+
   max-width: 100%;
 
   max-height: 100%;
@@ -300,14 +404,17 @@ h1 {
   object-fit: contain;
 
   border-radius: 9px;
+
 }
 
 
-/* =========================
-   버튼 영역
-========================= */
+
+/* ========================================
+   버튼
+======================================== */
 
 .controls {
+
   display: flex;
 
   align-items: center;
@@ -319,17 +426,19 @@ h1 {
   flex-wrap: wrap;
 
   margin-top: 10px;
+
 }
 
 
-/* 버튼 공통 */
-
 button {
+
   border: 0;
 
   border-radius: 999px;
 
-  padding: 12px 17px;
+  padding:
+    12px
+    17px;
 
   font-size: 15px;
 
@@ -338,171 +447,193 @@ button {
   cursor: pointer;
 
   min-height: 44px;
+
 }
 
 
-/* 이전 */
-
 .prev {
+
   background: #e9eef8;
 
   color: #626b7c;
+
 }
 
 
-/* 다음 */
-
 .next {
+
   background: #f0d8e7;
 
   color: #765b6d;
+
 }
 
 
-/* 첫 화면 */
-
 .home {
+
   background: #e2f1ea;
 
   color: #5e7067;
+
 }
 
 
-/* 사진 번호 */
-
 .counter {
+
   margin-right: auto;
 
   color: #aaa1ab;
 
   font-size: 14px;
+
 }
 
-
-/* 비활성 버튼 */
 
 button:disabled {
+
   opacity: 0.35;
+
 }
 
 
-/* 화면 숨기기 */
+
+/* ========================================
+   화면 숨기기
+======================================== */
 
 .hidden {
+
   display: none !important;
+
 }
 
 
-/* =========================
-   휴대폰 화면
-========================= */
+
+/* ========================================
+   휴대폰
+======================================== */
 
 @media (max-width: 560px) {
 
+
   .wrap {
+
     padding:
       10px
       8px
       25px;
+
   }
 
 
-  /* 제목 */
-
   h1 {
+
     font-size: 28px;
 
     margin:
       6px
       0
       14px;
+
   }
 
 
   .main-title {
+
     white-space: nowrap;
+
   }
 
 
   .sub-title {
+
     font-size: 0.52em;
 
     margin-top: 6px;
+
   }
 
 
-  /* 카드 */
-
   .card {
+
     padding: 9px;
 
     border-radius: 18px;
+
   }
 
 
-  /* 3 × 3 */
-
   .grid {
+
     gap: 7px;
+
   }
 
 
   .person {
+
     padding:
       12px
       2px
       11px;
+
   }
 
 
-  /* 이모티콘 */
-
   .dessert {
+
     font-size: 38px;
+
   }
 
 
   .num {
+
     font-size: 15px;
+
   }
 
 
   .name {
+
     font-size: 13px;
+
   }
 
 
-  /* 사진 */
-
   .slidebox {
+
     height: 63vh;
 
     min-height: 0;
+
   }
 
-
-  /* 버튼 */
 
   .controls {
+
     justify-content: center;
+
   }
 
 
-  /* 사진 번호를 위로 */
-
   .counter {
+
     width: 100%;
 
     text-align: center;
 
     order: -1;
+
   }
 
 
   button {
+
     padding:
       12px
       15px;
+
   }
 
 }
@@ -512,21 +643,24 @@ button:disabled {
 </head>
 
 
+
 <body>
 
 
 <div class="wrap">
 
 
-<!-- =========================
+
+<!-- ==================================================
      첫 화면
-========================= -->
+================================================== -->
 
 <section
   id="home"
   class="card"
   style="text-align:center"
 >
+
 
   <h1>
 
@@ -541,13 +675,15 @@ button:disabled {
   </h1>
 
 
-  <!-- 첫 번째 사진 -->
+
+  <!-- 슬라이드 1 -->
 
   <img
     class="main"
     src="박문 사진/슬라이드1.PNG"
     alt="슬라이드1"
   >
+
 
 
   <!-- 클릭 -->
@@ -559,31 +695,52 @@ button:disabled {
     👆 클릭
   </div>
 
+
 </section>
 
 
 
-<!-- =========================
-     9명 선택 화면
-========================= -->
+<!-- ==================================================
+     디저트 9개 화면
+================================================== -->
 
 <section
   id="members"
   class="card hidden"
 >
 
+
+  <!-- ⭐ 여기에도 제목을 넣음 ⭐ -->
+
+  <h1>
+
+    <span class="main-title">
+      🌷 박문지부 영무궁화 연찬회 🌷
+    </span>
+
+    <span class="sub-title">
+      🌸 (신인간혁명 9권) 🌸
+    </span>
+
+  </h1>
+
+
+
+  <!-- 디저트 9개 -->
+
   <div
     class="grid"
     id="grid"
   ></div>
 
+
 </section>
 
 
 
-<!-- =========================
-     사진 보기 화면
-========================= -->
+<!-- ==================================================
+     사진 보는 화면
+================================================== -->
 
 <section
   id="viewer"
@@ -597,6 +754,7 @@ button:disabled {
   ></div>
 
 
+
   <div class="slidebox">
 
     <img
@@ -606,6 +764,7 @@ button:disabled {
     >
 
   </div>
+
 
 
   <div class="controls">
@@ -645,7 +804,9 @@ button:disabled {
 
   </div>
 
+
 </section>
+
 
 
 </div>
@@ -654,9 +815,11 @@ button:disabled {
 
 <script>
 
-/* =========================
-   각 번호별 사진 범위
-========================= */
+
+/* ==================================================
+   번호별 사진 범위
+================================================== */
+
 
 const groups = [
 
@@ -681,9 +844,11 @@ const groups = [
 ];
 
 
+
 let group = null;
 
 let index = 0;
+
 
 
 /* 쉽게 찾기 */
@@ -692,11 +857,14 @@ const $ = id =>
   document.getElementById(id);
 
 
-/* =========================
-   9개 디저트 만들기
-========================= */
+
+/* ==================================================
+   디저트 9개 자동 생성
+================================================== */
+
 
 groups.forEach(g => {
+
 
   const el =
     document.createElement("div");
@@ -726,62 +894,80 @@ groups.forEach(g => {
     openGroup(g[0]);
 
 
-  $("grid").appendChild(el);
+  $("grid")
+    .appendChild(el);
+
 
 });
 
 
 
-/* =========================
+/* ==================================================
    모든 화면 숨기기
-========================= */
+================================================== */
+
 
 function hideAll() {
+
 
   $("home")
     .classList
     .add("hidden");
 
+
   $("members")
     .classList
     .add("hidden");
+
 
   $("viewer")
     .classList
     .add("hidden");
 
+
 }
 
 
 
-/* =========================
-   클릭 → 9명 화면
-========================= */
+/* ==================================================
+   첫 화면 → 디저트 화면
+================================================== */
+
 
 function showMembers() {
 
+
   hideAll();
+
 
   $("members")
     .classList
     .remove("hidden");
 
-  window.scrollTo(0,0);
+
+  window.scrollTo(
+    0,
+    0
+  );
+
 
 }
 
 
 
-/* =========================
+/* ==================================================
    번호 선택
-========================= */
+================================================== */
+
 
 function openGroup(n) {
+
 
   group =
     groups.find(
       g => g[0] === n
     );
+
 
   index = 0;
 
@@ -797,67 +983,86 @@ function openGroup(n) {
   update();
 
 
-  window.scrollTo(0,0);
+  window.scrollTo(
+    0,
+    0
+  );
+
 
 }
 
 
 
-/* =========================
+/* ==================================================
    사진 표시
-========================= */
+================================================== */
+
 
 function update() {
+
 
   const no =
     group[2] + index;
 
 
   $("slide").src =
+
     "박문 사진/슬라이드" +
     no +
     ".PNG";
 
 
   $("slide").alt =
-    "슬라이드" + no;
+
+    "슬라이드" +
+    no;
 
 
   $("title").textContent =
+
     group[0] +
     "번 · 연찬회 사진";
 
 
   $("counter").textContent =
+
     (index + 1) +
     " / " +
     (group[3] - group[2] + 1);
 
 
   $("prev").disabled =
+
     index === 0;
 
 
   $("next").disabled =
+
     no === group[3];
 
 }
 
 
 
-/* =========================
+/* ==================================================
    이전 / 다음
-========================= */
+================================================== */
+
 
 function move(dir) {
+
 
   const ni =
     index + dir;
 
 
   if (
+
     ni < 0 ||
-    group[2] + ni > group[3]
+
+    group[2] + ni >
+    group[3]
+
   ) {
 
     return;
@@ -874,11 +1079,13 @@ function move(dir) {
 
 
 
-/* =========================
-   첫 화면
-========================= */
+/* ==================================================
+   첫 화면으로
+================================================== */
+
 
 function goHome() {
+
 
   group = null;
 
@@ -893,16 +1100,20 @@ function goHome() {
     .remove("hidden");
 
 
-  window.scrollTo(0,0);
+  window.scrollTo(
+    0,
+    0
+  );
 
 }
 
 </script>
 
 
-<!-- =========================
+
+<!-- ==================================================
      PWA
-========================= -->
+================================================== -->
 
 <script>
 
@@ -921,4 +1132,5 @@ if (
 
 
 </body>
+
 </html>
