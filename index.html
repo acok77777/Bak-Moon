@@ -42,7 +42,7 @@ button:disabled{opacity:.35}
 <h1>박문지부 영무궁화 연찬회</h1>
 
 <section id="home" class="card" style="text-align:center">
-<img class="main" src="박문 사진/슬라이스1.PNG" alt="슬라이스1">
+<img class="main" src="박문 사진/슬라이드1.PNG" alt="슬라이드1">
 <div class="click" onclick="showMembers()">👆 클릭</div>
 </section>
 
@@ -93,8 +93,8 @@ function openGroup(n){
 }
 function update(){
  const no=group[2]+index;
- $("slide").src='박문 사진/슬라이스'+no+'.PNG';
- $("slide").alt='슬라이스'+no;
+ $("slide").src='박문 사진/슬라이드'+no+'.PNG';
+ $("slide").alt='슬라이드'+no;
  $("title").textContent=group[0]+'번 · 연찬회 사진';
  $("counter").textContent=(index+1)+' / '+(group[3]-group[2]+1);
  $("prev").disabled=index===0;
