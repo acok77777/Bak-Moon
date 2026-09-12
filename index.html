@@ -2,7 +2,6 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>박문지부 영무궁화 연찬회</title>
@@ -147,59 +146,49 @@
       color: #777;
     }
 
-    /* 사진 이동 버튼 */
+    /* 이전 / 나가기 / 다음 버튼 */
     .nav-buttons {
       display: flex;
       justify-content: center;
-      gap: 10px;
+      align-items: center;
+      gap: 8px;
       margin-top: 10px;
-      flex-wrap: wrap;
+      width: 100%;
     }
 
     .nav-button {
+      flex: 1;
+      max-width: 150px;
       border: none;
       border-radius: 25px;
-      padding: 13px 22px;
+      padding: 13px 8px;
       font-size: 16px;
       font-weight: bold;
       cursor: pointer;
-      background: #f4c5da;
-      color: #6d4c5b;
       box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      transition: 0.2s;
     }
 
     .nav-button:active {
       transform: scale(0.95);
     }
 
+    /* 이전 */
     .previous {
       background: #d9e9f7;
       color: #4d6680;
     }
 
+    /* 나가기 */
+    .exit {
+      background: #e8dff5;
+      color: #67577a;
+    }
+
+    /* 다음 */
     .next {
       background: #f4c5da;
       color: #6d4c5b;
-    }
-
-    /* 이전 화면 버튼 */
-    .back-button {
-      display: block;
-      width: 100%;
-      margin-top: 18px;
-      padding: 15px;
-      border: none;
-      border-radius: 25px;
-      background: #e8dff5;
-      color: #67577a;
-      font-size: 17px;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.08);
-    }
-
-    .back-button:active {
-      transform: scale(0.97);
     }
 
     /* 모바일 */
@@ -233,9 +222,13 @@
         font-size: 14px;
       }
 
+      .nav-buttons {
+        gap: 6px;
+      }
+
       .nav-button {
-        padding: 12px 17px;
-        font-size: 15px;
+        padding: 12px 5px;
+        font-size: 14px;
       }
 
     }
@@ -247,9 +240,9 @@
 
 <div class="container">
 
-  <!-- ========================= -->
+  <!-- ================================= -->
   <!-- 첫 화면 -->
-  <!-- ========================= -->
+  <!-- ================================= -->
 
   <div id="home">
 
@@ -279,9 +272,9 @@
   </div>
 
 
-  <!-- ========================= -->
+  <!-- ================================= -->
   <!-- 디저트 선택 화면 -->
-  <!-- ========================= -->
+  <!-- ================================= -->
 
   <div id="members" style="display:none;">
 
@@ -295,14 +288,17 @@
       </span>
     </h1>
 
-    <div class="grid" id="memberGrid"></div>
+    <div
+      class="grid"
+      id="memberGrid"
+    ></div>
 
   </div>
 
 
-  <!-- ========================= -->
+  <!-- ================================= -->
   <!-- 사진 보기 화면 -->
-  <!-- ========================= -->
+  <!-- ================================= -->
 
   <div id="viewer" style="display:none;">
 
@@ -318,13 +314,14 @@
 
     <div class="viewer">
 
+      <!-- 사진 -->
       <img
         id="slide"
         src=""
         alt="사진"
       >
 
-      <!-- 페이지 표시 -->
+      <!-- 페이지 -->
       <div
         class="page-number"
         id="pageNumber"
@@ -332,7 +329,10 @@
         1페이지 / 1페이지
       </div>
 
-      <!-- 이전 / 다음 -->
+      <!-- ================================= -->
+      <!-- 이전 / 나가기 / 다음 -->
+      <!-- ================================= -->
+
       <div class="nav-buttons">
 
         <button
@@ -343,6 +343,13 @@
         </button>
 
         <button
+          class="nav-button exit"
+          onclick="exitViewer()"
+        >
+          나가기
+        </button>
+
+        <button
           class="nav-button next"
           onclick="nextSlide()"
         >
@@ -350,14 +357,6 @@
         </button>
 
       </div>
-
-      <!-- 디저트 선택 화면으로 돌아가기 -->
-      <button
-        class="back-button"
-        onclick="backToMembers()"
-      >
-        이전 화면
-      </button>
 
     </div>
 
@@ -395,13 +394,11 @@
   ];
 
 
-  /* 현재 선택된 그룹 */
-
+  /* 현재 선택한 디저트 그룹 */
   let currentGroup = null;
 
 
   /* 현재 사진 번호 */
-
   let currentSlide = 0;
 
 
@@ -409,17 +406,23 @@
      화면 요소
      ======================================== */
 
-  const home = document.getElementById("home");
+  const home =
+    document.getElementById("home");
 
-  const members = document.getElementById("members");
+  const members =
+    document.getElementById("members");
 
-  const viewer = document.getElementById("viewer");
+  const viewer =
+    document.getElementById("viewer");
 
-  const slide = document.getElementById("slide");
+  const slide =
+    document.getElementById("slide");
 
-  const pageNumber = document.getElementById("pageNumber");
+  const pageNumber =
+    document.getElementById("pageNumber");
 
-  const memberGrid = document.getElementById("memberGrid");
+  const memberGrid =
+    document.getElementById("memberGrid");
 
 
   /* ========================================
@@ -432,15 +435,10 @@
 
     const emoji = group[1];
 
-    const start = group[2];
-
-    const end = group[3];
-
-
-    const button = document.createElement("div");
+    const button =
+      document.createElement("div");
 
     button.className = "member";
-
 
     button.innerHTML = `
 
@@ -454,13 +452,11 @@
 
     `;
 
-
     button.onclick = function() {
 
       openGroup(number);
 
     };
-
 
     memberGrid.appendChild(button);
 
@@ -468,7 +464,7 @@
 
 
   /* ========================================
-     디저트 선택 화면 열기
+     디저트 선택 화면
      ======================================== */
 
   function showMembers() {
@@ -485,35 +481,36 @@
 
 
   /* ========================================
-     특정 디저트 사진 열기
+     디저트 선택 → 사진 화면
      ======================================== */
 
   function openGroup(number) {
 
-    currentGroup = groups.find(function(group) {
+    currentGroup =
+      groups.find(function(group) {
 
-      return group[0] === number;
+        return group[0] === number;
 
-    });
+      });
 
 
     if (!currentGroup) return;
 
 
     /*
-      currentGroup 구조
-
       [번호, 이모지, 시작사진, 마지막사진]
     */
 
-    const start = currentGroup[2];
+    const start =
+      currentGroup[2];
+
 
     currentSlide = start;
 
 
-    members.style.display = "none";
-
     home.style.display = "none";
+
+    members.style.display = "none";
 
     viewer.style.display = "block";
 
@@ -524,7 +521,7 @@
 
 
   /* ========================================
-     현재 사진 보여주기
+     사진 보여주기
      ======================================== */
 
   function showSlide() {
@@ -532,42 +529,26 @@
     if (!currentGroup) return;
 
 
-    const start = currentGroup[2];
+    const start =
+      currentGroup[2];
 
-    const end = currentGroup[3];
+    const end =
+      currentGroup[3];
 
 
-    /*
-      사진 파일명
-
-      슬라이드2.PNG
-      슬라이드3.PNG
-      슬라이드4.PNG
-      ...
-    */
-
+    /* 사진 파일 */
     slide.src =
       "박문 사진/슬라이드"
       + currentSlide
       + ".PNG";
 
 
-    /*
-      현재 몇 번째 페이지인지 계산
-
-      예:
-      2~11
-
-      슬라이드2 = 1페이지
-      슬라이드3 = 2페이지
-      ...
-      슬라이드11 = 10페이지
-    */
-
+    /* 현재 페이지 */
     const currentPage =
       currentSlide - start + 1;
 
 
+    /* 전체 페이지 */
     const totalPages =
       end - start + 1;
 
@@ -593,7 +574,8 @@
     if (!currentGroup) return;
 
 
-    const end = currentGroup[3];
+    const end =
+      currentGroup[3];
 
 
     if (currentSlide < end) {
@@ -616,7 +598,8 @@
     if (!currentGroup) return;
 
 
-    const start = currentGroup[2];
+    const start =
+      currentGroup[2];
 
 
     if (currentSlide > start) {
@@ -631,14 +614,16 @@
 
 
   /* ========================================
-     🔙 이전 화면
+     나가기
      
-     사진 화면 → 디저트 선택 화면
+     사진 화면
+       ↓
+     디저트 선택 화면
      
-     첫 화면으로 가지 않음!
+     첫 화면으로 가지 않음
      ======================================== */
 
-  function backToMembers() {
+  function exitViewer() {
 
     viewer.style.display = "none";
 
@@ -654,25 +639,31 @@
 </script>
 
 
+<!-- ================================= -->
 <!-- 서비스워커 -->
+<!-- ================================= -->
+
 <script>
 
   if ("serviceWorker" in navigator) {
 
-    window.addEventListener("load", function() {
+    window.addEventListener(
+      "load",
+      function() {
 
-      navigator.serviceWorker
-        .register("sw.js")
-        .catch(function(error) {
+        navigator.serviceWorker
+          .register("sw.js")
+          .catch(function(error) {
 
-          console.log(
-            "Service Worker 등록 실패:",
-            error
-          );
+            console.log(
+              "Service Worker 등록 실패:",
+              error
+            );
 
-        });
+          });
 
-    });
+      }
+    );
 
   }
 
