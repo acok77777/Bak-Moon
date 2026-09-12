@@ -1,199 +1,87 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f6ddeb">
 <title>박문지부 영무궁화 연찬회</title>
+<link rel="manifest" href="manifest.json">
 <style>
-  *{box-sizing:border-box}
-  body{
-    margin:0; min-height:100vh;
-    font-family:"Noto Sans KR","Malgun Gothic",sans-serif;
-    background:linear-gradient(135deg,#fff8fb 0%,#f4fbff 50%,#fffdf5 100%);
-    color:#5c5964;
-  }
-  .wrap{max-width:920px;margin:0 auto;padding:24px 18px 42px}
-  h1{
-    margin:8px 0 22px;text-align:center;font-size:clamp(24px,5vw,38px);
-    color:#75647c;letter-spacing:-1.5px;
-  }
-  .card{
-    background:rgba(255,255,255,.86);border:1px solid #eadfea;
-    border-radius:24px;padding:18px;box-shadow:0 10px 30px rgba(110,90,120,.10);
-  }
-  .home-screen{text-align:center}
-  .main-photo{
-    display:block;width:100%;max-width:760px;max-height:62vh;object-fit:contain;
-    margin:0 auto;border-radius:18px;background:#faf7fb;
-    box-shadow:0 5px 18px rgba(90,80,100,.10);
-  }
-  .click{
-    display:inline-block;margin:20px auto 4px;padding:13px 34px;border-radius:999px;
-    background:#f3dff0;color:#725d70;font-weight:800;font-size:18px;
-    cursor:pointer;box-shadow:0 5px 12px rgba(150,110,150,.12);
-    transition:.18s;
-  }
-  .click:hover{transform:translateY(-2px);background:#ecd5e9}
-  .grid{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px;
-  }
-  .person{
-    border:1px solid #eadfea;border-radius:20px;padding:18px 8px 14px;
-    background:linear-gradient(180deg,#fff,#fff8fc);
-    cursor:pointer;transition:.18s;box-shadow:0 5px 14px rgba(110,90,120,.07);
-  }
-  .person:hover{transform:translateY(-3px);box-shadow:0 9px 18px rgba(110,90,120,.12)}
-  .dessert{font-size:48px;line-height:1.05}
-  .num{margin-top:10px;font-size:16px;font-weight:800;color:#746875}
-  .name{margin-top:5px;color:#aaa1aa;font-size:14px}
-  .viewer{text-align:center}
-  .viewer-title{font-size:20px;font-weight:800;color:#77677a;margin:2px 0 14px}
-  .slide-box{
-    min-height:55vh;display:flex;align-items:center;justify-content:center;
-    background:#fbf9fc;border-radius:18px;padding:10px;
-  }
-  .slide{
-    max-width:100%;max-height:65vh;object-fit:contain;border-radius:12px;
-  }
-  .controls{
-    display:flex;justify-content:flex-end;gap:10px;margin-top:14px;flex-wrap:wrap;
-  }
-  button{
-    border:0;border-radius:999px;padding:11px 20px;font-size:15px;font-weight:800;
-    cursor:pointer;background:#e8eef9;color:#5d6679;
-  }
-  button.next{background:#f2d9e8;color:#755b6b}
-  button.home{background:#e3f1eb;color:#5e7168}
-  button:disabled{opacity:.4;cursor:default}
-  .counter{margin-right:auto;align-self:center;color:#aaa0ab;font-size:14px}
-  .hidden{display:none!important}
-  @media(max-width:560px){
-    .wrap{padding:15px 10px 28px}
-    .card{padding:12px;border-radius:18px}
-    .grid{gap:9px}
-    .person{padding:14px 4px 11px;border-radius:16px}
-    .dessert{font-size:38px}
-    .slide-box{min-height:55vh}
-    .counter{width:100%;text-align:center}
-    .controls{justify-content:center}
-  }
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#fff8fb,#f3faff,#fffdf4);font-family:"Malgun Gothic","Noto Sans KR",sans-serif;color:#655d68}
+.wrap{max-width:900px;margin:auto;padding:18px}
+h1{text-align:center;color:#765f79;font-size:clamp(25px,6vw,40px);margin:8px 0 20px}
+.card{background:#ffffffdd;border:1px solid #eadfea;border-radius:24px;padding:16px;box-shadow:0 10px 28px #8c78901a}
+.main{width:100%;max-height:68vh;object-fit:contain;border-radius:17px;background:#faf8fb}
+.click{display:inline-block;margin:18px auto 4px;padding:13px 35px;border-radius:30px;background:#f1dcec;color:#765e72;font-weight:800;font-size:18px;cursor:pointer}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.person{border:1px solid #eadfea;border-radius:19px;background:linear-gradient(#fff,#fff8fc);padding:16px 5px;text-align:center;cursor:pointer;transition:.18s}
+.person:hover{transform:translateY(-3px);box-shadow:0 8px 18px #8c789018}
+.dessert{font-size:48px;line-height:1.1}.num{font-weight:800;margin-top:8px}.name{font-size:14px;color:#aaa2ab;margin-top:5px}
+.viewer-title{text-align:center;font-weight:800;color:#766477;font-size:19px;margin-bottom:12px}
+.slidebox{height:68vh;display:flex;align-items:center;justify-content:center;background:#faf9fc;border-radius:17px;padding:8px}
+.slide{max-width:100%;max-height:100%;object-fit:contain;border-radius:10px}
+.controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px}
+button{border:0;border-radius:24px;padding:11px 17px;font-weight:800;cursor:pointer}
+.prev{background:#e9eef8;color:#626b7c}.next{background:#f1d8e7;color:#765b6d}.home{background:#e2f1ea;color:#5e7067}
+.counter{margin-right:auto;color:#aaa1ab;font-size:14px}
+.hidden{display:none}
+@media(max-width:560px){.wrap{padding:10px}.card{padding:11px;border-radius:18px}.grid{gap:8px}.person{padding:13px 3px}.dessert{font-size:38px}.slidebox{height:62vh}.counter{width:100%;text-align:center}.controls{justify-content:center}}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <h1>박문지부 영무궁화 연찬회</h1>
+<h1>박문지부 영무궁화 연찬회</h1>
 
-  <section id="home" class="card home-screen">
-    <img id="mainPhoto" class="main-photo" src="박문 사진/슬라이스1.png" alt="연찬회 안내 사진"
-         onerror="this.alt='슬라이스1.png 파일을 찾을 수 없습니다';">
-    <div class="click" onclick="showMembers()">👆 클릭</div>
-  </section>
+<section id="home" class="card" style="text-align:center">
+<img class="main" src="박문 사진/슬라이스1.png" alt="슬라이스1" onerror="this.alt='박문 사진 폴더의 슬라이스1.png를 확인해주세요'">
+<div class="click" onclick="showMembers()">👆 클릭</div>
+</section>
 
-  <section id="members" class="card hidden">
-    <div class="grid" id="memberGrid"></div>
-  </section>
+<section id="members" class="card hidden">
+<div class="grid" id="grid"></div>
+</section>
 
-  <section id="viewer" class="card viewer hidden">
-    <div id="viewerTitle" class="viewer-title"></div>
-    <div class="slide-box">
-      <img id="slideImage" class="slide" alt="연찬회 사진">
-    </div>
-    <div class="controls">
-      <div id="counter" class="counter"></div>
-      <button id="prevBtn" onclick="prevSlide()">← 이전</button>
-      <button class="next" id="nextBtn" onclick="nextSlide()">다음 →</button>
-      <button class="home" onclick="goHome()">🏠 첫 화면</button>
-    </div>
-  </section>
+<section id="viewer" class="card hidden">
+<div class="viewer-title" id="title"></div>
+<div class="slidebox"><img id="slide" class="slide" alt=""></div>
+<div class="controls">
+<div class="counter" id="counter"></div>
+<button class="prev" id="prev" onclick="move(-1)">← 이전</button>
+<button class="next" id="next" onclick="move(1)">다음 →</button>
+<button class="home" onclick="home()">🏠 첫 화면</button>
+</div>
+</section>
 </div>
 
 <script>
-const groups = [
-  {num:1, emoji:"🍰", range:[2,11]},
-  {num:2, emoji:"🍮", range:[12,20]},
-  {num:3, emoji:"🍩", range:[21,27]},
-  {num:4, emoji:"🧁", range:[28,33]},
-  {num:5, emoji:"🍪", range:[34,42]},
-  {num:6, emoji:"🍓", range:[43,51]},
-  {num:7, emoji:"🍨", range:[52,60]},
-  {num:8, emoji:"🍫", range:[61,70]},
-  {num:9, emoji:"🍧", range:[71,78]}
+const groups=[
+[1,"🍰",2,11],[2,"🍮",12,20],[3,"🍩",21,27],
+[4,"🧁",28,33],[5,"🍪",34,42],[6,"🍓",43,51],
+[7,"🍨",52,60],[8,"🍫",61,70],[9,"🍧",71,78]
 ];
-
-let currentGroup = null;
-let currentIndex = 0;
-
-const home = document.getElementById("home");
-const members = document.getElementById("members");
-const viewer = document.getElementById("viewer");
-const slideImage = document.getElementById("slideImage");
-const viewerTitle = document.getElementById("viewerTitle");
-const counter = document.getElementById("counter");
-const prevBtn = document.getElementById("prevBtn");
-const nextBtn = document.getElementById("nextBtn");
-
-const grid = document.getElementById("memberGrid");
-groups.forEach(g => {
-  const el = document.createElement("div");
-  el.className = "person";
-  el.innerHTML = `<div class="dessert">${g.emoji}</div>
-                 <div class="num">${g.num}번</div>
-                 <div class="name">( 이름 )</div>`;
-  el.onclick = () => openGroup(g.num);
-  grid.appendChild(el);
+let g=null,i=0;
+const $=id=>document.getElementById(id);
+groups.forEach(x=>{
+ const d=document.createElement("div");d.className="person";
+ d.innerHTML=`<div class="dessert">${x[1]}</div><div class="num">${x[0]}번</div><div class="name">( 이름 )</div>`;
+ d.onclick=()=>openGroup(x[0]);$("grid").appendChild(d);
 });
-
-function showMembers(){
-  home.classList.add("hidden");
-  viewer.classList.add("hidden");
-  members.classList.remove("hidden");
-  window.scrollTo({top:0,behavior:"smooth"});
+function hideAll(){$("home").classList.add("hidden");$("members").classList.add("hidden");$("viewer").classList.add("hidden")}
+function showMembers(){hideAll();$("members").classList.remove("hidden");scrollTo(0,0)}
+function openGroup(n){g=groups.find(x=>x[0]===n);i=0;hideAll();$("viewer").classList.remove("hidden");update();scrollTo(0,0)}
+function update(){
+ let no=g[2]+i;
+ $("slide").src=`박문 사진/슬라이스${no}.png`;
+ $("slide").alt=`슬라이스${no}`;
+ $("title").textContent=`${g[0]}번 · 연찬회 사진`;
+ $("counter").textContent=`${i+1} / ${g[3]-g[2]+1}`;
+ $("prev").disabled=i===0;$("next").disabled=no===g[3];
 }
-
-function openGroup(num){
-  currentGroup = groups.find(g => g.num === num);
-  currentIndex = 0;
-  members.classList.add("hidden");
-  viewer.classList.remove("hidden");
-  updateSlide();
-  window.scrollTo({top:0,behavior:"smooth"});
-}
-
-function updateSlide(){
-  const [start,end] = currentGroup.range;
-  const number = start + currentIndex;
-  slideImage.src = `박문 사진/슬라이스${number}.png`;
-  slideImage.alt = `${number}번 사진`;
-  viewerTitle.textContent = `${currentGroup.num}번 · 연찬회 사진`;
-  counter.textContent = `${currentIndex+1} / ${end-start+1}`;
-  prevBtn.disabled = currentIndex === 0;
-  nextBtn.disabled = number === end;
-}
-
-function nextSlide(){
-  if(!currentGroup) return;
-  const end = currentGroup.range[1];
-  if(currentGroup.range[0] + currentIndex < end){
-    currentIndex++;
-    updateSlide();
-  }
-}
-
-function prevSlide(){
-  if(!currentGroup) return;
-  if(currentIndex > 0){
-    currentIndex--;
-    updateSlide();
-  }
-}
-
-function goHome(){
-  currentGroup = null;
-  home.classList.remove("hidden");
-  members.classList.add("hidden");
-  viewer.classList.add("hidden");
-  window.scrollTo({top:0,behavior:"smooth"});
-}
+function move(dir){let ni=i+dir;if(ni<0||g[2]+ni>g[3])return;i=ni;update()}
+function home(){g=null;i=0;hideAll();$("home").classList.remove("hidden");scrollTo(0,0)}
+</script>
+<script>
+if("serviceWorker" in navigator){navigator.serviceWorker.register("./sw.js").catch(()=>{});}
 </script>
 </body>
 </html>
