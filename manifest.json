@@ -1,9 +1,1 @@
-{
-  "name": "박문지부 영무궁화 연찬회",
-  "short_name": "영무궁화 연찬회",
-  "start_url": "./",
-  "display": "standalone",
-  "background_color": "#fff8fb",
-  "theme_color": "#f0d8e7",
-  "lang": "ko"
-}
+{"name":"박문지부 영무궁화 연찬회","start_url":"./","display":"standalone"}

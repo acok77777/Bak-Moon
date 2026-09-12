@@ -124,29 +124,17 @@
       margin-bottom: 7px;
     }
 
+    .info {
+      margin-top: 8px;
+      font-size: 14px;
+      color: #888;
+      font-weight: bold;
+    }
+
     .member-name {
       font-size: 15px;
       font-weight: bold;
       color: #666;
-    }
-
-    /* 이름 입력칸 */
-    .name-input {
-      width: 90%;
-      max-width: 120px;
-      padding: 7px 5px;
-      border: 1px solid #e5c9d8;
-      border-radius: 10px;
-      text-align: center;
-      font-size: 14px;
-      color: #555;
-      background: #fffafd;
-      outline: none;
-    }
-
-    .name-input:focus {
-      border: 2px solid #e9a9c5;
-      background: white;
     }
 
     /* ==================================
@@ -423,32 +411,23 @@
 
   const groups = [
 
-    // 1번 → 슬라이드 2~11
-    [1, "🍰", 2, 11],
+    [1, "🍰", 2, 11, "305"],
 
-    // 2번 → 슬라이드 12~18
-    [2, "🍮", 12, 18],
+    [2, "🍮", 12, 18, "312"],
 
-    // 3번 → 슬라이드 19~25
-    [3, "🍩", 19, 25],
+    [3, "🍩", 19, 25, "251~252"],
 
-    // 4번 → 슬라이드 26~31
-    [4, "🧁", 26, 31],
+    [4, "🧁", 26, 31, "257~258"],
 
-    // 5번 → 슬라이드 32~40
-    [5, "🍪", 32, 40],
+    [5, "🍪", 32, 40, "266"],
 
-    // 6번 → 슬라이드 41~49
-    [6, "🍓", 41, 49],
+    [6, "🍓", 41, 49, "267"],
 
-    // 7번 → 슬라이드 50~58
-    [7, "🍨", 50, 58],
+    [7, "🍨", 50, 58, "293~294"],
 
-    // 8번 → 슬라이드 59~69
-    [8, "🍫", 59, 69],
+    [8, "🍫", 59, 69, "240~241"],
 
-    // 9번 → 슬라이드 70~78
-    [9, "🍧", 70, 78]
+    [9, "🍧", 70, 78, "247~248"]
 
   ];
 
@@ -542,62 +521,17 @@
         ${number}번
       </span>
 
-      <br>
-
-      <input
-        class="name-input"
-        type="text"
-        placeholder="이름 입력"
-        value="${savedName}"
-        maxlength="10"
-        onclick="event.stopPropagation();"
-      >
+      <div class="info">
+        페이지 ${group[4]}
+      </div>
 
     `;
-
-
-    /* 이름 입력칸 */
-    const input =
-      button.querySelector(".name-input");
-
-
-    /* 이름 입력할 때 자동 저장 */
-    input.addEventListener(
-      "input",
-      function() {
-
-        saveName(
-          number,
-          input.value
-        );
-
-      }
-    );
-
-
-    /*
-      디저트 버튼을 누르면
-      사진 화면으로 이동
-
-      입력칸을 누른 경우에는
-      사진으로 이동하지 않음
-    */
-
     button.addEventListener(
       "click",
-      function(event) {
-
-        if (
-          event.target.tagName === "INPUT"
-        ) {
-          return;
-        }
-
+      function() {
         openGroup(number);
-
       }
     );
-
 
     memberGrid.appendChild(button);
 
