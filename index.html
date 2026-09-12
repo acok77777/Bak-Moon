@@ -22,7 +22,7 @@
     body {
       margin: 0;
       padding: 0;
-      font-family: "Arial", "Malgun Gothic", sans-serif;
+      font-family: Arial, "Malgun Gothic", sans-serif;
       background: linear-gradient(
         135deg,
         #fff7fb,
@@ -76,7 +76,11 @@
       display: inline-block;
       padding: 15px 35px;
       border-radius: 30px;
-      background: linear-gradient(135deg, #f5a8c8, #e98bb4);
+      background: linear-gradient(
+        135deg,
+        #f5a8c8,
+        #e98bb4
+      );
       color: white;
       font-size: 20px;
       font-weight: bold;
@@ -89,7 +93,10 @@
       transform: scale(0.95);
     }
 
-    /* 디저트 선택 */
+    /* ==================================
+       디저트 선택 화면
+       ================================== */
+
     .grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -123,7 +130,29 @@
       color: #666;
     }
 
-    /* 사진 보기 */
+    /* 이름 입력칸 */
+    .name-input {
+      width: 90%;
+      max-width: 120px;
+      padding: 7px 5px;
+      border: 1px solid #e5c9d8;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 14px;
+      color: #555;
+      background: #fffafd;
+      outline: none;
+    }
+
+    .name-input:focus {
+      border: 2px solid #e9a9c5;
+      background: white;
+    }
+
+    /* ==================================
+       사진 보기
+       ================================== */
+
     .viewer {
       margin-top: 10px;
     }
@@ -146,7 +175,10 @@
       color: #777;
     }
 
-    /* 이전 / 나가기 / 다음 버튼 */
+    /* ==================================
+       이전 / 나가기 / 다음
+       ================================== */
+
     .nav-buttons {
       display: flex;
       justify-content: center;
@@ -191,7 +223,10 @@
       color: #6d4c5b;
     }
 
-    /* 모바일 */
+    /* ==================================
+       모바일
+       ================================== */
+
     @media (max-width: 500px) {
 
       .container {
@@ -222,6 +257,11 @@
         font-size: 14px;
       }
 
+      .name-input {
+        font-size: 13px;
+        padding: 6px 3px;
+      }
+
       .nav-buttons {
         gap: 6px;
       }
@@ -240,13 +280,14 @@
 
 <div class="container">
 
-  <!-- ================================= -->
-  <!-- 첫 화면 -->
-  <!-- ================================= -->
+  <!-- ==================================
+       첫 화면
+       ================================== -->
 
   <div id="home">
 
     <h1>
+
       <span class="main-title">
         🌷 박문지부 영무궁화 연찬회 🌷
       </span>
@@ -254,6 +295,7 @@
       <span class="sub-title">
         🌸 (신인간혁명 9권) 🌸
       </span>
+
     </h1>
 
     <img
@@ -272,13 +314,17 @@
   </div>
 
 
-  <!-- ================================= -->
-  <!-- 디저트 선택 화면 -->
-  <!-- ================================= -->
+  <!-- ==================================
+       디저트 선택 화면
+       ================================== -->
 
-  <div id="members" style="display:none;">
+  <div
+    id="members"
+    style="display:none;"
+  >
 
     <h1>
+
       <span class="main-title">
         🌷 박문지부 영무궁화 연찬회 🌷
       </span>
@@ -286,6 +332,7 @@
       <span class="sub-title">
         🌸 (신인간혁명 9권) 🌸
       </span>
+
     </h1>
 
     <div
@@ -296,13 +343,17 @@
   </div>
 
 
-  <!-- ================================= -->
-  <!-- 사진 보기 화면 -->
-  <!-- ================================= -->
+  <!-- ==================================
+       사진 보기 화면
+       ================================== -->
 
-  <div id="viewer" style="display:none;">
+  <div
+    id="viewer"
+    style="display:none;"
+  >
 
     <h1>
+
       <span class="main-title">
         🌷 박문지부 영무궁화 연찬회 🌷
       </span>
@@ -310,6 +361,7 @@
       <span class="sub-title">
         🌸 (신인간혁명 9권) 🌸
       </span>
+
     </h1>
 
     <div class="viewer">
@@ -329,9 +381,10 @@
         1페이지 / 1페이지
       </div>
 
-      <!-- ================================= -->
-      <!-- 이전 / 나가기 / 다음 -->
-      <!-- ================================= -->
+
+      <!-- ==================================
+           이전 / 나가기 / 다음
+           ================================== -->
 
       <div class="nav-buttons">
 
@@ -394,11 +447,11 @@
   ];
 
 
-  /* 현재 선택한 디저트 그룹 */
+  /* 현재 선택한 그룹 */
   let currentGroup = null;
 
 
-  /* 현재 사진 번호 */
+  /* 현재 사진 */
   let currentSlide = 0;
 
 
@@ -426,6 +479,33 @@
 
 
   /* ========================================
+     저장된 이름 가져오기
+     ======================================== */
+
+  function getName(number) {
+
+    return localStorage.getItem(
+      "memberName" + number
+    ) || "";
+
+  }
+
+
+  /* ========================================
+     이름 저장
+     ======================================== */
+
+  function saveName(number, value) {
+
+    localStorage.setItem(
+      "memberName" + number,
+      value
+    );
+
+  }
+
+
+  /* ========================================
      디저트 버튼 만들기
      ======================================== */
 
@@ -440,6 +520,12 @@
 
     button.className = "member";
 
+
+    /* 저장된 이름 */
+    const savedName =
+      getName(number);
+
+
     button.innerHTML = `
 
       <span class="dessert">
@@ -447,16 +533,65 @@
       </span>
 
       <span class="member-name">
-        ${number}번 ( 이름 )
+        ${number}번
       </span>
+
+      <br>
+
+      <input
+        class="name-input"
+        type="text"
+        placeholder="이름 입력"
+        value="${savedName}"
+        maxlength="10"
+        onclick="event.stopPropagation();"
+      >
 
     `;
 
-    button.onclick = function() {
 
-      openGroup(number);
+    /* 이름 입력칸 */
+    const input =
+      button.querySelector(".name-input");
 
-    };
+
+    /* 이름 입력할 때 자동 저장 */
+    input.addEventListener(
+      "input",
+      function() {
+
+        saveName(
+          number,
+          input.value
+        );
+
+      }
+    );
+
+
+    /*
+      디저트 버튼을 누르면
+      사진 화면으로 이동
+
+      단, 입력칸을 누른 경우에는
+      이동하지 않음
+    */
+
+    button.addEventListener(
+      "click",
+      function(event) {
+
+        if (
+          event.target.tagName === "INPUT"
+        ) {
+          return;
+        }
+
+        openGroup(number);
+
+      }
+    );
+
 
     memberGrid.appendChild(button);
 
@@ -464,7 +599,7 @@
 
 
   /* ========================================
-     디저트 선택 화면
+     첫 화면 → 디저트 선택
      ======================================== */
 
   function showMembers() {
@@ -481,7 +616,7 @@
 
 
   /* ========================================
-     디저트 선택 → 사진 화면
+     디저트 → 사진
      ======================================== */
 
   function openGroup(number) {
@@ -494,13 +629,12 @@
       });
 
 
-    if (!currentGroup) return;
+    if (!currentGroup) {
+      return;
+    }
 
 
-    /*
-      [번호, 이모지, 시작사진, 마지막사진]
-    */
-
+    /* 시작 사진 */
     const start =
       currentGroup[2];
 
@@ -521,12 +655,14 @@
 
 
   /* ========================================
-     사진 보여주기
+     현재 사진 보여주기
      ======================================== */
 
   function showSlide() {
 
-    if (!currentGroup) return;
+    if (!currentGroup) {
+      return;
+    }
 
 
     const start =
@@ -537,6 +673,7 @@
 
 
     /* 사진 파일 */
+
     slide.src =
       "박문 사진/슬라이드"
       + currentSlide
@@ -544,11 +681,13 @@
 
 
     /* 현재 페이지 */
+
     const currentPage =
       currentSlide - start + 1;
 
 
     /* 전체 페이지 */
+
     const totalPages =
       end - start + 1;
 
@@ -571,7 +710,9 @@
 
   function nextSlide() {
 
-    if (!currentGroup) return;
+    if (!currentGroup) {
+      return;
+    }
 
 
     const end =
@@ -595,7 +736,9 @@
 
   function previousSlide() {
 
-    if (!currentGroup) return;
+    if (!currentGroup) {
+      return;
+    }
 
 
     const start =
@@ -619,8 +762,6 @@
      사진 화면
        ↓
      디저트 선택 화면
-     
-     첫 화면으로 가지 않음
      ======================================== */
 
   function exitViewer() {
@@ -635,13 +776,12 @@
 
   }
 
-
 </script>
 
 
-<!-- ================================= -->
-<!-- 서비스워커 -->
-<!-- ================================= -->
+<!-- ==================================
+     서비스워커
+     ================================== -->
 
 <script>
 
